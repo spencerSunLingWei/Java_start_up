@@ -1,2 +1,2 @@
 # Java_start_up
-start up programs for java learning
+small programs to learn and practice coding in JAVA
