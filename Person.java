@@ -1,6 +1,4 @@
-package com.stage1.part3.task4;
-
-import java.util.Objects;
+package com.stage1.part4.task1;
 
 public class Person {
 
@@ -10,9 +8,9 @@ public class Person {
     public Person() {
     }
 
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
+    public Person(String name, int age) /*throws AgeException*/ {
+        setAge(age);
+        setName(name);
     }
 
     public String getName() {
@@ -27,8 +25,18 @@ public class Person {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setAge(int age) /*throws AgeException*/ {
+        if(age>0 && age<150){
+            this.age = age;
+        }
+        else{
+            try {
+                throw new AgeException("年龄不合理");
+            } catch (AgeException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     @Override
@@ -37,19 +45,5 @@ public class Person {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return age == person.age &&
-                Objects.equals(name, person.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, age);
     }
 }
