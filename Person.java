@@ -1,4 +1,4 @@
-package com.stage1.part4.task1;
+package com.stage1.part4.task5;
 
 public class Person {
 
@@ -8,9 +8,9 @@ public class Person {
     public Person() {
     }
 
-    public Person(String name, int age) /*throws AgeException*/ {
-        setAge(age);
-        setName(name);
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
     }
 
     public String getName() {
@@ -25,18 +25,8 @@ public class Person {
         return age;
     }
 
-    public void setAge(int age) /*throws AgeException*/ {
-        if(age>0 && age<150){
-            this.age = age;
-        }
-        else{
-            try {
-                throw new AgeException("年龄不合理");
-            } catch (AgeException e) {
-                e.printStackTrace();
-            }
-        }
-
+    public void setAge(int age) {
+        this.age = age;
     }
 
     @Override

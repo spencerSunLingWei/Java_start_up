@@ -1,34 +1,40 @@
-package com.stage1.part3.task1;
+package com.stage1.part4.task5;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Type;
 
 public class StudentTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        Student s1 = new Student(1000,"pckk");
-        Student s2 = new Student(1001,"pckk");
+        Class c1 = Class.forName("com.stage1.part4.task5.Student");
+        System.out.println("获取到的包信息是： " + c1.getPackage());
+        System.out.println("获取到的父类信息是： " + c1.getSuperclass());
 
-        //inherited from the object class is default to compare the two objects' address
-        //otherwise if overrides
-        boolean b1 = s1.equals(s2);
-        System.out.println("b1 = " + b1);
-        System.out.println(s1 == s2);
+        System.out.println("------------------------------");
+        System.out.println("获取到的接口信息是： ");
+        Class[] interfaces = c1.getInterfaces();
+        for(Class ct:interfaces){
+            System.out.println(ct + " ");
+        }
+        System.out.println();
 
-        System.out.println("----------------------");
+        System.out.println("------------------------------");
+        System.out.println("获取到的注解信息是：");
+        Annotation[] annotations = c1.getAnnotations();
+        for(Annotation at:annotations){
+            System.out.println(at + " ");
+        }
+        System.out.println();
 
-        //先调用继承下来的原hashcode()方法需要重写
-        int ia = s1.hashCode();
-        int ib = s2.hashCode();
+        System.out.println("------------------------------");
+        System.out.println("获取到的泛型信息是： ");
+        Type[] genericInterfaces = c1.getGenericInterfaces();
+        for(Type tt:genericInterfaces){
+            System.out.println(tt + " ");
+        }
+        System.out.println();
 
-        System.out.println("ia = " + ia);
-        System.out.println("ib = " + ib);
 
-        System.out.println("----------------------");
-
-        //继承下来的原toString方法
-        //获取调用对象的字符串形式：报名.类名@hashcode的16进制
-        //重写
-        String str1 = s1.toString();
-        System.out.println("str1 = " + str1);
-        System.out.println(s2); //当打印一个引用变量的时候，会自动调用toString方法
     }
 }
