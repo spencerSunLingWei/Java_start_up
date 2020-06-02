@@ -1,7 +1,6 @@
 package com.stage1.part5.task1;
 
-public interface Animal {
+public interface RunAnimal {
 
     void run();
-    void fly();
 }

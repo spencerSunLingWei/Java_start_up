@@ -1,16 +1,14 @@
-package com.stage1.part4.task5;
+package com.stage1.part5.task1;
 
-public class Person {
+public abstract class Person {
 
     private String name;
-    private int age;
 
     public Person() {
     }
 
-    public Person(String name, int age) {
+    public Person(String name) {
         this.name = name;
-        this.age = age;
     }
 
     public String getName() {
@@ -21,19 +19,12 @@ public class Person {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     @Override
     public String toString() {
         return "Person{" +
                 "name='" + name + '\'' +
-                ", age=" + age +
                 '}';
     }
+
+    public abstract void show();
 }
